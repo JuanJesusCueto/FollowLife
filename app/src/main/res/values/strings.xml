@@ -15,9 +15,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="password_string">Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="have_an_account">HAVE AN ACCOUNT?</string>
     <string name="not_yet">Not yet</string>
     <string name="afirmation_string">Yes</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="don_t_have_an_account_sign_up">DON\'T HAVE AN ACCOUNT? SIGN UP</string>
 </resources>

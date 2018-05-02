@@ -15,7 +15,8 @@
         android:layout_margin="@dimen/big_margin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/tittleTextView"
@@ -62,7 +63,7 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="example@gmail.com"
+            android:hint="@string/example_gmail_com"
             android:inputType="textEmailAddress"
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@id/emailTextView"/>
@@ -103,7 +104,7 @@
         android:id="@+id/signUpTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DON'T HAVE AN ACCOUNT? SIGN UP"
+        android:text="@string/don_t_have_an_account_sign_up"
         android:textAppearance="?android:textAppearanceMedium"
         android:textStyle="bold"
         android:layout_margin="@dimen/big_margin"

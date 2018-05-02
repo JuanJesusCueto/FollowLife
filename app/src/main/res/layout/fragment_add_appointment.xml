@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AddAppointmentFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/doctorsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/appointmentDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appointment date and hour"
+            android:layout_margin="@dimen/big_margin"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/doctorsRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_margin="@dimen/big_margin"
+            android:textColor="@color/colorSecondaryText"
+            app:layout_constraintTop_toBottomOf="@id/doctorsRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/reasonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reason"
+            android:layout_margin="@dimen/big_margin"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/appointmentDateTextView"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/reasonDataTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="heart"
+            android:layout_margin="@dimen/big_margin"
+            android:textColor="@color/colorSecondaryText"
+            app:layout_constraintTop_toBottomOf="@id/dateTextView"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="Save"
+            android:textColor="@color/colorIcons"
+            android:layout_margin="@dimen/big_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reasonTextView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

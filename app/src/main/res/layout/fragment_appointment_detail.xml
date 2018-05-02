@@ -4,22 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".fragments.AppointmentDetailFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/userDetailContainer"
+            android:id="@+id/doctorDetailContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             app:layout_constraintTop_toTopOf="parent"
             android:background="@color/colorAccent">
 
             <ImageView
-                android:id="@+id/userPhotoImageView"
+                android:id="@+id/doctorPhotoImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@mipmap/ic_launcher"
@@ -30,7 +29,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
-                android:id="@+id/userNameTextView"
+                android:id="@+id/doctorNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/first_name"
@@ -39,10 +38,10 @@
                 android:layout_marginBottom="@dimen/default_margin"
                 android:textColor="@color/colorIcons"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/userPhotoImageView"/>
+                app:layout_constraintStart_toEndOf="@id/doctorPhotoImageView"/>
 
             <TextView
-                android:id="@+id/userNumberTextView"
+                android:id="@+id/doctorNumberTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number"
@@ -50,11 +49,11 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginBottom="@dimen/default_margin"
                 android:textColor="@color/colorIcons"
-                app:layout_constraintTop_toBottomOf="@id/userNameTextView"
-                app:layout_constraintStart_toEndOf="@id/userPhotoImageView"/>
+                app:layout_constraintTop_toBottomOf="@id/doctorNameTextView"
+                app:layout_constraintStart_toEndOf="@id/doctorPhotoImageView"/>
 
             <TextView
-                android:id="@+id/userEmailTextView"
+                android:id="@+id/doctorEmailTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_string"
@@ -62,8 +61,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginBottom="@dimen/default_margin"
                 android:textColor="@color/colorIcons"
-                app:layout_constraintTop_toBottomOf="@id/userNumberTextView"
-                app:layout_constraintStart_toEndOf="@id/userPhotoImageView"/>
+                app:layout_constraintTop_toBottomOf="@id/doctorNumberTextView"
+                app:layout_constraintStart_toEndOf="@id/doctorPhotoImageView"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -71,7 +70,19 @@
             android:id="@+id/appointmentDetailRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/userDetailContainer"/>
+            app:layout_constraintTop_toBottomOf="@id/doctorDetailContainer"/>
+
+        <Button
+            android:id="@+id/rescheduleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorIcons"
+            android:text="Reschedule Appointment"
+            android:textStyle="bold"
+            android:layout_margin="32dp"
+            app:layout_constraintTop_toBottomOf="@id/appointmentDetailRecyclerView"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
 
