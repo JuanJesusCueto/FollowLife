@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.bottomActivity"
+            android:name=".activities.BottomActivity"
             android:label="@string/title_activity_bottom" />
         <activity android:name=".activities.SignUpActivity"></activity>
     </application>

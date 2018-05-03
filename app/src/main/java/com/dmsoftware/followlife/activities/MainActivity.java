@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validateData()) {
-                    Intent intent = new Intent(context,bottomActivity.class);
+                    Intent intent = new Intent(context,BottomActivity.class);
                     //intent.putExtras();
                     context.startActivity(intent);
                 }
