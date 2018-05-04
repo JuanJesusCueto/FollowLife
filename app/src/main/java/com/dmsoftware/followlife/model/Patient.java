@@ -79,15 +79,16 @@ public class Patient extends User {
     }
 
     public static Patient from(JSONObject jsonObject) {
-        Patient patient = new Patient("","","");
+        Patient patient = new Patient();
         try {
-            patient = new Patient(jsonObject.getString("FirstName"),jsonObject.getString("LastName"),jsonObject.getString("Email"));
-            patient.setAge(jsonObject.getString("Age"))
-                    .setBloodType(jsonObject.getString("BloodType"))
-                    .setHeight(jsonObject.getString("Height"))
-                    .setSex(jsonObject.getString("Sex"))
-                    .setWeight(jsonObject.getString("Weight"))
-                    .setPhoneNumber(jsonObject.getString("PhoneNumber"));
+           Patient patientAux = new Patient(jsonObject.getString("firstName"),jsonObject.getString("lastName"),jsonObject.getString("email"));
+            patient.setAge(jsonObject.getString("age"))
+                    .setBloodType(jsonObject.getString("bloodType"))
+                    .setHeight(jsonObject.getString("height"))
+                    .setSex(jsonObject.getString("sex"))
+                    .setWeight(jsonObject.getString("weight"))
+                    .setPhoneNumber(jsonObject.getString("phoneNumber"));
+            patient = patientAux;
         } catch (JSONException e) {
             e.printStackTrace();
         }

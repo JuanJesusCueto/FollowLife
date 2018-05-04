@@ -84,13 +84,13 @@ public class User {
         return user;
     }
 
-    public static Bundle toBundle(User user) {
+    public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putString("id",user.getId());
-        bundle.putString("name",user.getName());
-        bundle.putString("lastName", user.getLastName());
-        bundle.putString("session",user.getSession());
-        bundle.putString("email",user.getEmail());
+        bundle.putString("id", id);
+        bundle.putString("name",name);
+        bundle.putString("lastName", lastName);
+        bundle.putString("session",session);
+        bundle.putString("email",email);
         return bundle;
     }
 

@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     User user = userViewModel.login(emailEditText.getText().toString(),passEditText.getText().toString(),"token");
                     if (user != null) {
                         Log.d("FollowApp",user.getEmail());
-
                         Intent intent = new Intent(context,BottomActivity.class);
-                        //intent.putExtras();
+                        intent.putExtras(user.toBundle());
                         context.startActivity(intent);
                     }
                 }
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean validateData() {
 
         boolean isCorrect = true;
-        /*emailEditText.setError(null);
+        emailEditText.setError(null);
         passEditText.setError(null);
 
         View focusView = null;
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!isCorrect) {
             focusView.requestFocus();
-        }*/
+        }
 
         return isCorrect;
     }

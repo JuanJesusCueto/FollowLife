@@ -16,10 +16,12 @@ import com.dmsoftware.followlife.fragments.AppointmentFragment;
 import com.dmsoftware.followlife.fragments.HomeFragment;
 import com.dmsoftware.followlife.fragments.ProfileFragment;
 import com.dmsoftware.followlife.fragments.RoomFragment;
+import com.dmsoftware.followlife.model.User;
 
 public class BottomActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private User u;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,9 +40,12 @@ public class BottomActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+        u = User.from(getIntent().getExtras());
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigateAccordingTo(R.id.navigation_home);
     }
 
     @Override
@@ -80,7 +85,10 @@ public class BottomActivity extends AppCompatActivity {
             case R.id.navigation_home: return new HomeFragment();
             case R.id.navigation_room: return new RoomFragment();
             case R.id.navigation_appointment: return new AppointmentFragment();
-            case R.id.navigation_profile: return new ProfileFragment();
+            case R.id.navigation_profile:
+                ProfileFragment profileFragment = new ProfileFragment();
+                profileFragment.setArguments(u.toBundle());
+                return profileFragment;
         }
         return null;
     }
