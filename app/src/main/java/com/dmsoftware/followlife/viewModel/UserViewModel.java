@@ -19,6 +19,7 @@ public class UserViewModel extends ViewModel {
 
     private User user;
     private String message;
+    private Patient patient;
 
     public UserViewModel() {
     }
@@ -101,5 +102,27 @@ public class UserViewModel extends ViewModel {
                 });
 
         return message;
+    }
+
+    public Patient getProfile(String sessionToken) {
+
+        AndroidNetworking.get(FollowLifeAPI.GET_PROFILE)
+                .addHeaders("X-FLLNLF-TOKEN",sessionToken)
+                .setTag("FollowLife")
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
+
+        return patient;
     }
 }

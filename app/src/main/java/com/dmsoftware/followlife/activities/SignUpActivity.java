@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dmsoftware.followlife.R;
+import com.dmsoftware.followlife.repositories.NotificationsRepository;
 import com.dmsoftware.followlife.viewModel.UserViewModel;
 
 public class SignUpActivity extends AppCompatActivity {
