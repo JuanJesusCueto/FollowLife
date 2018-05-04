@@ -1,5 +1,10 @@
 package com.dmsoftware.followlife.model;
 
+
+import org.json.JSONObject;
+
+import org.json.JSONException;
+
 public class Patient extends User {
 
     private String phoneNumber;
@@ -9,14 +14,14 @@ public class Patient extends User {
     private String weight;
     private String age;
 
-    public Patient(String id, String name, String lastName, String email, String password, String phoneNumber, String sex, String bloodType, String height, String weight, String age) {
-        super(id, name, lastName, email, password);
-        this.phoneNumber = phoneNumber;
-        this.sex = sex;
-        this.bloodType = bloodType;
-        this.height = height;
-        this.weight = weight;
-        this.age = age;
+
+    public Patient() {
+    }
+
+
+
+    public Patient(String name, String lastName, String email) {
+        super(name, lastName, email);
     }
 
     public String getPhoneNumber() {
@@ -72,4 +77,21 @@ public class Patient extends User {
         this.age = age;
         return this;
     }
+
+    public static Patient from(JSONObject jsonObject) {
+        Patient patient = new Patient("","","");
+        try {
+            patient = new Patient(jsonObject.getString("FirstName"),jsonObject.getString("LastName"),jsonObject.getString("Email"));
+            patient.setAge(jsonObject.getString("Age"))
+                    .setBloodType(jsonObject.getString("BloodType"))
+                    .setHeight(jsonObject.getString("Height"))
+                    .setSex(jsonObject.getString("Sex"))
+                    .setWeight(jsonObject.getString("Weight"))
+                    .setPhoneNumber(jsonObject.getString("PhoneNumber"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return patient;
+    }
+
 }
