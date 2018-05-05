@@ -11,11 +11,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.dmsoftware.followlife.R;
 import com.dmsoftware.followlife.adapters.ProfileAdapter;
 import com.dmsoftware.followlife.model.Patient;
 import com.dmsoftware.followlife.model.User;
+import com.dmsoftware.followlife.networking.FollowLifeAPI;
 import com.dmsoftware.followlife.viewModel.UserViewModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,16 +54,39 @@ public class ProfileFragment extends Fragment {
         nameTextView = (TextView) view.findViewById(R.id.userNameTextView);
         phoneTextView = (TextView) view.findViewById(R.id.userNumberTextView);
         profileImageView = (ImageView) view.findViewById(R.id.userPhotoImageView);
+        emailTextView = (TextView) view.findViewById(R.id.userEmailTextView);
         Bundle b = getArguments();
-        Patient patient = userViewModel.getProfile(b.getString("session"));
-        Log.d("FollowLife",patient.getName());
-        if (patient != null) {
-            patient.setPhoneNumber("966991826");
-            nameTextView.setText(patient.getName());
-            phoneTextView.setText(patient.getPhoneNumber());
-            emailTextView.setText(patient.getEmail());
-        }
+        getProfile(b.getString("session"));
         return view;
     }
+
+
+    public void getProfile(String sessionToken) {
+
+        AndroidNetworking.get(FollowLifeAPI.GET_PROFILE)
+                .addHeaders("X-FLLWLF-TOKEN",sessionToken)
+                .setTag("FollowLife")
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("FollowLife","Success");
+
+                        try {
+                            nameTextView.setText(response.getString("firstName"));
+                            phoneTextView.setText("966991826");
+                            emailTextView.setText(response.getString("email"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("FollowLife",anError.getLocalizedMessage());
+                    }
+                });
+    }
+
 
 }

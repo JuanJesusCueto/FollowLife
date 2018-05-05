@@ -12,5 +12,9 @@ public class AppointmentRespository {
             new Appointment(1,2,"20/12/18","Heart Check"),
             new Appointment(1,2,"20/12/18","Heart Check"),
             new Appointment(1,2,"20/12/18","Heart Check"),
+            new Appointment(1,2,"20/12/18","Heart Check"),
+            new Appointment(1,2,"20/12/18","Heart Check"),
+            new Appointment(1,2,"20/12/18","Heart Check"),
             new Appointment(1,2,"20/12/18","Heart Check"));
+
 }

@@ -1,6 +1,8 @@
 package com.dmsoftware.followlife.model;
 
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import org.json.JSONException;
@@ -79,20 +81,21 @@ public class Patient extends User {
     }
 
     public static Patient from(JSONObject jsonObject) {
-        Patient patient = new Patient();
         try {
-           Patient patientAux = new Patient(jsonObject.getString("firstName"),jsonObject.getString("lastName"),jsonObject.getString("email"));
-            patient.setAge(jsonObject.getString("age"))
+            Patient patientAux = new Patient(jsonObject.getString("firstName"),jsonObject.getString("lastName"),jsonObject.getString("email"));
+            patientAux.setAge(jsonObject.getString("age"))
                     .setBloodType(jsonObject.getString("bloodType"))
                     .setHeight(jsonObject.getString("height"))
                     .setSex(jsonObject.getString("sex"))
                     .setWeight(jsonObject.getString("weight"))
                     .setPhoneNumber(jsonObject.getString("phoneNumber"));
-            patient = patientAux;
+            return patientAux;
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return patient;
+        return null;
     }
+
+
 
 }
