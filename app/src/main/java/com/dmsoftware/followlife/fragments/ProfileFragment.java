@@ -63,8 +63,9 @@ public class ProfileFragment extends Fragment {
 
     public void getProfile(String sessionToken) {
 
-        AndroidNetworking.get(FollowLifeAPI.GET_PROFILE)
+        AndroidNetworking.get(FollowLifeAPI.GET_PROFILE + "/1021")
                 .addHeaders("X-FLLWLF-TOKEN",sessionToken)
+                .addHeaders("Accept","application/json")
                 .setTag("FollowLife")
                 .setPriority(Priority.LOW)
                 .build()

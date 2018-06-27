@@ -37,6 +37,7 @@ public class UserViewModel extends ViewModel {
         }
 
         AndroidNetworking.post(FollowLifeAPI.PATIENT_LOGIN)
+                .addHeaders("Accept","application/json")
                 .addJSONObjectBody(model)
                 .setTag("FollowLife")
                 .setPriority(Priority.MEDIUM)
@@ -77,6 +78,7 @@ public class UserViewModel extends ViewModel {
         }
 
         AndroidNetworking.post(FollowLifeAPI.SIGN_UP)
+                .addHeaders("Accept","application/json")
                 .addJSONObjectBody(model)
                 .setTag("FollowLife")
                 .setPriority(Priority.MEDIUM)

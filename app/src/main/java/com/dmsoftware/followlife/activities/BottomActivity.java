@@ -84,7 +84,10 @@ public class BottomActivity extends AppCompatActivity {
         switch (id) {
             case R.id.navigation_home: return new HomeFragment();
             case R.id.navigation_room: return new RoomFragment();
-            case R.id.navigation_appointment: return new AppointmentFragment();
+            case R.id.navigation_appointment:
+                AppointmentFragment appointmentFragment = new AppointmentFragment();
+                appointmentFragment.setArguments(u.toBundle());
+                return appointmentFragment;
             case R.id.navigation_profile:
                 ProfileFragment profileFragment = new ProfileFragment();
                 profileFragment.setArguments(u.toBundle());

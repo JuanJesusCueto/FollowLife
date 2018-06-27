@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     User user = userViewModel.login(emailEditText.getText().toString(),passEditText.getText().toString(),"token");
                     if (user != null) {
                         Log.d("FollowApp",user.getEmail());
+                        Log.d("FollowApp",user.getSession());
                         Intent intent = new Intent(context,BottomActivity.class);
                         intent.putExtras(user.toBundle());
                         context.startActivity(intent);
